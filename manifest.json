@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "YouTube Don't Recommend Channel Button",
+    "version": "1.0",
+    "description": "Adds a custom button to YouTube video cards to block channels.",
+    "permissions": [
+      "activeTab",
+      "https://www.youtube.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ]
+  }
