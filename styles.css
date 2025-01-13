@@ -16,3 +16,20 @@
   opacity: 1;
   color: #ff0000;
 }
+
+.custom-not-interested {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  margin-right: 8px;
+}
+
+.custom-not-interested:hover {
+  opacity: 1;
+  color: #ff0000;
+}
