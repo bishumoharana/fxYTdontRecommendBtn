@@ -1,15 +1,15 @@
+/* "Don't Recommend Channel" button */
 .custom-dont-recommend {
   background: none;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   padding: 5px;
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.2s ease;
-  margin-right: 8px;
-  position: relative;
-  z-index: 1;
+  margin-top: 8px;
+  display: block;
 }
 
 .custom-dont-recommend:hover {
@@ -17,6 +17,7 @@
   color: #ff0000;
 }
 
+/* "Not Interested" button */
 .custom-not-interested {
   background: none;
   border: none;
@@ -26,7 +27,8 @@
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.2s ease;
-  margin-right: 8px;
+  margin-top: 8px;
+  display: block;
 }
 
 .custom-not-interested:hover {

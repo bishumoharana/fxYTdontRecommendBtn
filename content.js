@@ -2,9 +2,6 @@
 function addCustomButton(card) {
   if (card.querySelector('.custom-dont-recommend')) return;
 
-  const wrapper = document.createElement('div');
-  wrapper.style.pointerEvents = 'auto'; // Allow clicks on the wrapper
-
   const customButton = document.createElement('button');
   customButton.className = 'custom-dont-recommend';
   customButton.innerHTML = '🚫';
@@ -27,20 +24,17 @@ function addCustomButton(card) {
     }
   });
 
-  wrapper.appendChild(customButton);
-
-  const buttonContainer = card.querySelector('#menu, .ytd-menu-renderer, ytd-menu-renderer');
-  if (buttonContainer) {
-    buttonContainer.prepend(wrapper);
+  // Find the three-dot menu container
+  const threeDotMenuContainer = card.querySelector('#menu, .ytd-menu-renderer, ytd-menu-renderer');
+  if (threeDotMenuContainer) {
+    // Insert the button below the three-dot menu
+    threeDotMenuContainer.parentNode.insertBefore(customButton, threeDotMenuContainer.nextSibling);
   }
 }
 
 // Function to add the "Not Interested" button
 function addNotInterestedButton(card) {
   if (card.querySelector('.custom-not-interested')) return;
-
-  const wrapper = document.createElement('div');
-  wrapper.style.pointerEvents = 'auto'; // Allow clicks on the wrapper
 
   const notInterestedButton = document.createElement('button');
   notInterestedButton.className = 'custom-not-interested';
@@ -67,11 +61,11 @@ function addNotInterestedButton(card) {
     }
   });
 
-  wrapper.appendChild(notInterestedButton);
-
-  const textContainer = card.querySelector('#video-title, .ytd-video-renderer #meta');
-  if (textContainer) {
-    textContainer.insertBefore(wrapper, textContainer.firstChild);
+  // Find the channel icon/avatar container
+  const channelIconContainer = card.querySelector('#avatar-link, ytd-channel-name #avatar');
+  if (channelIconContainer) {
+    // Insert the button below the channel icon
+    channelIconContainer.parentNode.insertBefore(notInterestedButton, channelIconContainer.nextSibling);
   }
 }
 
