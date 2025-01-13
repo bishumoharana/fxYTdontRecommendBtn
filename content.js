@@ -2,13 +2,17 @@
 function addCustomButton(card) {
   if (card.querySelector('.custom-dont-recommend')) return;
 
+  const wrapper = document.createElement('div');
+  wrapper.style.pointerEvents = 'auto'; // Allow clicks on the wrapper
+
   const customButton = document.createElement('button');
   customButton.className = 'custom-dont-recommend';
   customButton.innerHTML = '🚫';
   customButton.title = "Don't recommend channel";
 
   customButton.addEventListener('click', (event) => {
-    event.stopPropagation();
+    event.stopPropagation(); // Stop event propagation
+    event.preventDefault(); // Prevent default behavior
 
     const threeDotMenu = card.querySelector('button[aria-label="More actions"], button[aria-label="Action menu"]');
     if (threeDotMenu) {
@@ -23,9 +27,11 @@ function addCustomButton(card) {
     }
   });
 
+  wrapper.appendChild(customButton);
+
   const buttonContainer = card.querySelector('#menu, .ytd-menu-renderer, ytd-menu-renderer');
   if (buttonContainer) {
-    buttonContainer.prepend(customButton);
+    buttonContainer.prepend(wrapper);
   }
 }
 
@@ -33,13 +39,17 @@ function addCustomButton(card) {
 function addNotInterestedButton(card) {
   if (card.querySelector('.custom-not-interested')) return;
 
+  const wrapper = document.createElement('div');
+  wrapper.style.pointerEvents = 'auto'; // Allow clicks on the wrapper
+
   const notInterestedButton = document.createElement('button');
   notInterestedButton.className = 'custom-not-interested';
   notInterestedButton.innerHTML = '❌';
   notInterestedButton.title = "Not Interested";
 
   notInterestedButton.addEventListener('click', (event) => {
-    event.stopPropagation();
+    event.stopPropagation(); // Stop event propagation
+    event.preventDefault(); // Prevent default behavior
 
     const threeDotMenu = card.querySelector('button[aria-label="More actions"], button[aria-label="Action menu"]');
     if (threeDotMenu) {
@@ -57,9 +67,11 @@ function addNotInterestedButton(card) {
     }
   });
 
+  wrapper.appendChild(notInterestedButton);
+
   const textContainer = card.querySelector('#video-title, .ytd-video-renderer #meta');
   if (textContainer) {
-    textContainer.insertBefore(notInterestedButton, textContainer.firstChild);
+    textContainer.insertBefore(wrapper, textContainer.firstChild);
   }
 }
 
